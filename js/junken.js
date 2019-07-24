@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		var tekihand = null;//敵の手
 
 		var RandomInteger = Math.floor(Math.random() * 3);
-		console.log("RandomInteger:" +RandomInteger);
+		//console.log("RandomInteger:" +RandomInteger);
 		//敵の手を決める
 		switch (RandomInteger) {
 			case 0:
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
 				break;
 		}
 
-		console.log("tekihand:" + tekihand);
+		//console.log("tekihand:" + tekihand);
 		return tekihand;
 	};
 
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		var myhand = null;//自分の手
 
 		var Radios = document.getElementsByClassName("hand");
-		console.log("Radios.length" + Radios.length);
+		//console.log("Radios.length" + Radios.length);
 		//プレイヤーの手を取得
 		for (var i = 0; i < Radios.length; i++) {
 			var Radio = Radios.item(i);
@@ -48,14 +48,11 @@ document.addEventListener("DOMContentLoaded", function () {
 			}
 		}
 
-		console.log("myhand:" + myhand);
+		//console.log("myhand:" + myhand);
 		return myhand;
 
 	};
     
-	/**
-     * 
-     */
 
 	/**
      * 'ポン'のボタンを押したら、実行するもの
@@ -63,7 +60,9 @@ document.addEventListener("DOMContentLoaded", function () {
 	document.getElementById("btn").addEventListener("click", function () {
 		var Myhand = getMyhandValue();
 		var Tekihand = getTekiHand();
+		
 		Handtyper = new Handtype(Myhand,Tekihand);
+		Handtyper.Winer();
         
 	});
 }, false);
